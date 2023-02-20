@@ -11,7 +11,7 @@ const boxesRef = document.querySelector('#boxes');
 
 function createBoxes(amount) {
   let elements = [];
-  for (let i = 0; i <= amount; i += 1) {
+  for (let i = 0; i < amount; i += 1) {
     const boxRef = document.createElement('div');
     boxRef.style.width = `${i * 10 + 30}px`;
     boxRef.style.height = `${i * 10 + 30}px`;
@@ -22,14 +22,15 @@ function createBoxes(amount) {
   return boxesRef;
 }
 
-function deleteBoxes () {
+function destroyBoxes () {
   boxesRef.innerHTML = '';
+  inputRef.value = '';
 }
 
 createBtnRef.addEventListener('click', () => {
-	createBoxes();
+	createBoxes(inputRef.value);
 })
 
 destroyBtnRef.addEventListener('click', () => {
-  deleteBoxes();
+  destroyBoxes();
 })
